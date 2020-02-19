@@ -6,7 +6,13 @@ public class BasicEnemyController : MonoBehaviour
 {
     public float speed;
     public float maxSpeed;
+    float sqrMaxSpeed;
     public float detectionRadius;
+
+    //this is used as the position that the enemy is chasing towards (generally
+    //      the point where they last saw the player
+    Vector3 pursue = new Vector3();
+
 
     
     //used with AI
@@ -22,6 +28,10 @@ public class BasicEnemyController : MonoBehaviour
     void Start()
     {
         state = States.rest;
+
+        //accessing sqrMagnitude is quicker than magnitude, so use that when checking speed and then square maxSpeed
+        // (currently enemies do not utilize this)
+        sqrMaxSpeed = maxSpeed * maxSpeed;
     }
 
     // Update is called once per frame
@@ -30,7 +40,9 @@ public class BasicEnemyController : MonoBehaviour
         if (state == States.pursue)
         {
             //follow player or whatever
+            transform.position = Vector2.MoveTowards(transform.position, pursue, speed * Time.deltaTime);
         }
+        checkDetection();
     }
 
     void checkDetection()
@@ -42,6 +54,7 @@ public class BasicEnemyController : MonoBehaviour
             if (hits[i].gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 state = States.pursue;
+                pursue = hits[i].gameObject.transform.position;
             }
         }
     }
