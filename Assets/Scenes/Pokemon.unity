@@ -5516,6 +5516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   maxSpeed: 3
+  tokensLeft: 8
 --- !u!50 &1540227530
 Rigidbody2D:
   serializedVersion: 4

@@ -1,16 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     //speed of the player character
     public float speed;
     public float maxSpeed;
+    public int tokensLeft;
     float sqrMaxSpeed;
 
     
     Rigidbody2D rb;
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.GetComponent<Token>()) {
+            --tokensLeft;
+        }
+    }
     
 
     // Start is called before the first frame update
@@ -49,6 +58,10 @@ public class PlayerController : MonoBehaviour
         if (rb.velocity.sqrMagnitude > maxSpeed * maxSpeed)
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
+        }
+
+        if(tokensLeft == 0){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
