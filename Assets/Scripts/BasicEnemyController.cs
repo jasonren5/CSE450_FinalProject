@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BasicEnemyController : MonoBehaviour
 {
@@ -56,6 +57,14 @@ public class BasicEnemyController : MonoBehaviour
                 state = States.pursue;
                 pursue = hits[i].gameObject.transform.position;
             }
+        }
+    }
+
+    //Set up collision event with the other player
+    void OnCollisionEnter2D(Collision2D other) {
+        //Reload scene only when colliding with player
+        if(other.gameObject.GetComponent<PlayerController>()) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
