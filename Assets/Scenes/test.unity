@@ -196,26 +196,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4077291768925284929, guid: 077997818189ed54ba2df48e5c8f76e8,
-        type: 3}
-      propertyPath: followDistance
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077291768925284931, guid: 077997818189ed54ba2df48e5c8f76e8,
-        type: 3}
-      propertyPath: m_Offset.x
-      value: -0.0020326257
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077291768925284931, guid: 077997818189ed54ba2df48e5c8f76e8,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.06482788
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077291768925284931, guid: 077997818189ed54ba2df48e5c8f76e8,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.013081342
-      objectReference: {fileID: 0}
     - target: {fileID: 4077291768925284988, guid: 077997818189ed54ba2df48e5c8f76e8,
         type: 3}
       propertyPath: m_Name
@@ -373,7 +353,7 @@ GameObject:
   - component: {fileID: 1981242581}
   - component: {fileID: 1981242582}
   - component: {fileID: 1981242579}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
