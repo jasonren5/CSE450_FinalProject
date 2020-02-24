@@ -98,6 +98,7 @@ MonoBehaviour:
   speed: 1
   maxSpeed: 2
   detectionRadius: 2
+  followDistance: 4
 --- !u!50 &4077291768925284928
 Rigidbody2D:
   serializedVersion: 4
@@ -132,6 +133,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0020326257, y: -0.013081342}
   serializedVersion: 2
-  m_Radius: 0.109
+  m_Radius: 0.06482788
