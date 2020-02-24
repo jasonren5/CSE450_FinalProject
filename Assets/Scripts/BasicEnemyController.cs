@@ -38,12 +38,17 @@ public class BasicEnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        checkDetection();
+    }
+
+    private void FixedUpdate()
+    {
         if (state == States.pursue)
         {
             //follow player or whatever
             transform.position = Vector2.MoveTowards(transform.position, pursue, speed * Time.deltaTime);
         }
-        checkDetection();
     }
 
     void checkDetection()
