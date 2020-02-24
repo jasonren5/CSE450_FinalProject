@@ -8,7 +8,17 @@ public class BasicEnemyController : MonoBehaviour
     public float speed;
     public float maxSpeed;
     float sqrMaxSpeed;
+
+    //determines the radius that the player needs to touch for the enemy to 'detect' the player
+    // (this should probably be smaller than the follow distance)
     public float detectionRadius;
+
+    //determines how far the player needs to be for them to 'lose sight' of the player
+    public float followDistance;
+    Rigidbody2D rigidbody;
+    Ray ray = new Ray();
+
+    int mask = (1 << 11) | (1 << 8) | (1 << 7) | (1 << 6) | (1 << 5) | (1 << 4) | (1 << 3) | (1 << 2) | (1 << 1);
 
     //this is used as the position that the enemy is chasing towards (generally
     //      the point where they last saw the player
@@ -33,6 +43,7 @@ public class BasicEnemyController : MonoBehaviour
         //accessing sqrMagnitude is quicker than magnitude, so use that when checking speed and then square maxSpeed
         // (currently enemies do not utilize this)
         sqrMaxSpeed = maxSpeed * maxSpeed;
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -48,6 +59,12 @@ public class BasicEnemyController : MonoBehaviour
         {
             //follow player or whatever
             transform.position = Vector2.MoveTowards(transform.position, pursue, speed * Time.deltaTime);
+            //check if it has reached the position that is is chasing, and if true, then
+            //      exit pursuing state
+            if (transform.position == pursue)
+            {
+                state = States.rest;
+            }
         }
     }
 
@@ -59,11 +76,48 @@ public class BasicEnemyController : MonoBehaviour
         {
             if (hits[i].gameObject.layer == LayerMask.NameToLayer("Player"))
             {
-                state = States.pursue;
-                pursue = hits[i].gameObject.transform.position;
+                //need to check if there is anything between the player and the enemy
+                Vector2 angleToPlayer = (hits[i].gameObject.transform.position - transform.position).normalized;
+                //RaycastHit2D[] checkObstruction = Physics2D.RaycastAll(transform.position, angleToPlayer, detectionRadius, mask);
+                RaycastHit2D checkObstruction = Physics2D.Raycast(transform.position, angleToPlayer, detectionRadius, mask);
+
+                //hit something
+                //for (int j = 0; j < checkObstruction.Length; j++)
+                //{
+                //    if (checkObstruction[j].collider != null)
+                //    {
+                //        Debug.Log("collider name: " + checkObstruction[j].collider.gameObject.name);
+
+                //        //hit player
+                //        if (checkObstruction[j].collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+                //        {
+                //            state = States.pursue;
+                //            pursue = hits[i].gameObject.transform.position;
+                //        }
+                //    }
+                //}
+
+                //hit something
+
+                if (checkObstruction.collider != null)
+                {
+                    Debug.Log("collider name: " + checkObstruction.collider.gameObject.name);
+
+                    //hit player
+                    if (checkObstruction.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
+                    {
+                        state = States.pursue;
+                        pursue = hits[i].gameObject.transform.position;
+                    }
+                }
+                
+
+
+
             }
         }
     }
+
 
     //Set up collision event with the other player
     void OnCollisionEnter2D(Collision2D other) {
