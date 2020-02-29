@@ -58,7 +58,7 @@ public class BasicEnemyController : MonoBehaviour
         if (state == States.pursue)
         {
             //follow player or whatever
-            transform.position = Vector2.MoveTowards(transform.position, pursue, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, pursue, speed * Time.deltaTime);
             //check if it has reached the position that is is chasing, and if true, then
             //      exit pursuing state
             if (transform.position == pursue)
@@ -107,7 +107,7 @@ public class BasicEnemyController : MonoBehaviour
                     if (checkObstruction.collider.gameObject.layer == LayerMask.NameToLayer("Player"))
                     {
                         state = States.pursue;
-                        pursue = hits[i].gameObject.transform.position;
+                        pursue = new Vector3(hits[i].gameObject.transform.position.x, hits[i].gameObject.transform.position.y, -1);
                     }
                 }
                 
