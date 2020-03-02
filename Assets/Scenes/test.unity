@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &862832978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2646781988120199604, guid: ab893bd5ea6303e48be3b3330e4b1c19,
+    type: 3}
+  m_PrefabInstance: {fileID: 906777848}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &906777848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -269,6 +275,7 @@ GameObject:
   - component: {fileID: 1219394124}
   - component: {fileID: 1219394123}
   - component: {fileID: 1219394122}
+  - component: {fileID: 1219394125}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -311,7 +318,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -341,6 +348,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1219394125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219394121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d91ee46d349c9341b41ddde6f74bac9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 862832978}
+  dampTime: 0.25
 --- !u!1 &1981242578
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +398,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2, y: 3.2}
+    oldSize: {x: 0.5217391, y: 0.5217391}
     newSize: {x: 3.2, y: 3.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
