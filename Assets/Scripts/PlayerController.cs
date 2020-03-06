@@ -7,9 +7,14 @@ public class PlayerController : MonoBehaviour
 {
     //speed of the player character
     public float speed;
+    //speed modifier when sprinting
+    public float sprintModifier;
     public float maxSpeed;
     public int tokensLeft;
     float sqrMaxSpeed;
+
+    float drag;
+    float angularDrag;
 
     
     Rigidbody2D rb;
@@ -29,6 +34,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //accessing sqrMagnitude is quicker than magnitude, so use that when checking speed and then square maxSpeed
         sqrMaxSpeed = maxSpeed * maxSpeed;
+
+        drag = rb.drag;
+        angularDrag = angularDrag;
 
     }
 
@@ -54,11 +62,26 @@ public class PlayerController : MonoBehaviour
             rb.velocity += speed * Vector2.right * Time.deltaTime;
         }
 
-        
-        if (rb.velocity.sqrMagnitude > maxSpeed * maxSpeed)
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
+            rb.drag = drag / 2;
+
+            if (rb.velocity.sqrMagnitude > maxSpeed * maxSpeed * sprintModifier * sprintModifier)
+            {
+                rb.velocity = rb.velocity.normalized * maxSpeed * sprintModifier;
+            }
+
+        } else
+        {
+            rb.drag = drag;
+            if (rb.velocity.sqrMagnitude > maxSpeed * maxSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * maxSpeed;
+            }
         }
+
+        
+
 
         if(tokensLeft == 0){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
