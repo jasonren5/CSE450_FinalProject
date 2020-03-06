@@ -10577,6 +10577,11 @@ PrefabInstance:
       propertyPath: m_HDR
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6482132257898324396, guid: 0a947014cce563e429851653896b0a22,
+        type: 3}
+      propertyPath: orthographic size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6482132257898324398, guid: 0a947014cce563e429851653896b0a22,
         type: 3}
       propertyPath: m_Name
@@ -16579,11 +16584,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 2646781988120199608, guid: ab893bd5ea6303e48be3b3330e4b1c19,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2646781988120199610, guid: ab893bd5ea6303e48be3b3330e4b1c19,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16638,21 +16638,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2646781988120199611, guid: ab893bd5ea6303e48be3b3330e4b1c19,
-        type: 3}
-      propertyPath: sprintModifier
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2646781988120199611, guid: ab893bd5ea6303e48be3b3330e4b1c19,
-        type: 3}
-      propertyPath: speed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2646781988120199611, guid: ab893bd5ea6303e48be3b3330e4b1c19,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 1.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab893bd5ea6303e48be3b3330e4b1c19, type: 3}
