@@ -13,8 +13,15 @@ public class PlayerController : MonoBehaviour
     public int tokensLeft;
     float sqrMaxSpeed;
 
+    float stamina = 10f;
+    public float staminaDrain;
+    public float staminaRegen;
+
     float drag;
     float angularDrag;
+
+    //time since last sprint
+    float lastSprint;
 
     
     Rigidbody2D rb;
@@ -37,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
         drag = rb.drag;
         angularDrag = angularDrag;
+        lastSprint = Time.time;
 
     }
 
@@ -62,7 +70,8 @@ public class PlayerController : MonoBehaviour
             rb.velocity += speed * Vector2.right * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        //if sprinting
+        if (Input.GetKey(KeyCode.LeftShift) && stamina > 0)
         {
             rb.drag = drag / 2;
 
@@ -70,13 +79,22 @@ public class PlayerController : MonoBehaviour
             {
                 rb.velocity = rb.velocity.normalized * maxSpeed * sprintModifier;
             }
-
-        } else
+            stamina -= staminaDrain / 10;
+            lastSprint = Time.time;
+        }
+        //if not sprinting
+        else
         {
             rb.drag = drag;
             if (rb.velocity.sqrMagnitude > maxSpeed * maxSpeed)
             {
                 rb.velocity = rb.velocity.normalized * maxSpeed;
+            }
+
+            //if 2 seconds have passed since the last time the player was sprinting, begin regenerating stamina
+            if (Time.time - lastSprint > 2f)
+            {
+                stamina += staminaRegen / 10;
             }
         }
 
