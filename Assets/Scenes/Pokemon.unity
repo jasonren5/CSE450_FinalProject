@@ -951,7 +951,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -10507,6 +10507,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5890925247891803342, guid: 0a947014cce563e429851653896b0a22,
+        type: 3}
+      propertyPath: m_RefResolutionX
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 5890925247891803342, guid: 0a947014cce563e429851653896b0a22,
+        type: 3}
+      propertyPath: m_RefResolutionY
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 6482132257898324394, guid: 0a947014cce563e429851653896b0a22,
         type: 3}
       propertyPath: target
@@ -10566,21 +10576,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6482132257898324396, guid: 0a947014cce563e429851653896b0a22,
-        type: 3}
-      propertyPath: m_AllowMSAA
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6482132257898324396, guid: 0a947014cce563e429851653896b0a22,
-        type: 3}
-      propertyPath: m_HDR
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6482132257898324396, guid: 0a947014cce563e429851653896b0a22,
-        type: 3}
-      propertyPath: orthographic size
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6482132257898324398, guid: 0a947014cce563e429851653896b0a22,
         type: 3}
