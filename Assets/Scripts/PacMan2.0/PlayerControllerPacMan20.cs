@@ -14,7 +14,6 @@ public class PlayerControllerPacMan20 : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-
     }
 
     void FixedUpdate() {
