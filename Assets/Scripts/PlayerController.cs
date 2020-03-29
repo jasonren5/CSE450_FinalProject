@@ -7,9 +7,21 @@ public class PlayerController : MonoBehaviour
 {
     //speed of the player character
     public float speed;
+    //speed modifier when sprinting
+    public float sprintModifier;
     public float maxSpeed;
     public int tokensLeft;
     float sqrMaxSpeed;
+
+    float stamina = 10f;
+    public float staminaDrain;
+    public float staminaRegen;
+
+    float drag;
+    float angularDrag;
+
+    //time since last sprint
+    float lastSprint;
 
     
     Rigidbody2D rb;
@@ -29,6 +41,10 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //accessing sqrMagnitude is quicker than magnitude, so use that when checking speed and then square maxSpeed
         sqrMaxSpeed = maxSpeed * maxSpeed;
+
+        drag = rb.drag;
+        angularDrag = angularDrag;
+        lastSprint = Time.time;
 
     }
 
@@ -54,11 +70,36 @@ public class PlayerController : MonoBehaviour
             rb.velocity += speed * Vector2.right * Time.deltaTime;
         }
 
-        
-        if (rb.velocity.sqrMagnitude > maxSpeed * maxSpeed)
+        //if sprinting
+        if (Input.GetKey(KeyCode.LeftShift) && stamina > 0)
         {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
+            rb.drag = drag / 2;
+
+            if (rb.velocity.sqrMagnitude > maxSpeed * maxSpeed * sprintModifier * sprintModifier)
+            {
+                rb.velocity = rb.velocity.normalized * maxSpeed * sprintModifier;
+            }
+            stamina -= staminaDrain / 10;
+            lastSprint = Time.time;
         }
+        //if not sprinting
+        else
+        {
+            rb.drag = drag;
+            if (rb.velocity.sqrMagnitude > maxSpeed * maxSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * maxSpeed;
+            }
+
+            //if 2 seconds have passed since the last time the player was sprinting, begin regenerating stamina
+            if (Time.time - lastSprint > 2f)
+            {
+                stamina += staminaRegen / 10;
+            }
+        }
+
+        
+
 
         if(tokensLeft == 0){
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);

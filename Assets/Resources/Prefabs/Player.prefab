@@ -96,8 +96,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  maxSpeed: 2
+  sprintModifier: 1.5
+  maxSpeed: 1.4
   tokensLeft: 8
+  staminaDrain: 1
+  staminaRegen: 1
 --- !u!50 &2646781988120199608
 Rigidbody2D:
   serializedVersion: 4
