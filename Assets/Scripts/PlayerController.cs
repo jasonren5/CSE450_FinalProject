@@ -105,4 +105,12 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<PortalController>())
+        {
+            SceneManager.LoadScene("Hub");
+        }
+    }
 }
