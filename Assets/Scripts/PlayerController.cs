@@ -112,5 +112,11 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene("Hub");
         }
+
+        //level selector
+        if (collision.gameObject.GetComponent<HubLevelSelector>())
+        {
+            SceneManager.LoadScene(collision.gameObject.GetComponent<HubLevelSelector>().sceneName);
+        }
     }
 }
