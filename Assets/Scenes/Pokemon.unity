@@ -16184,6 +16184,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4077291768925284928, guid: 077997818189ed54ba2df48e5c8f76e8,
+        type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077291768925284928, guid: 077997818189ed54ba2df48e5c8f76e8,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4077291768925284988, guid: 077997818189ed54ba2df48e5c8f76e8,
         type: 3}
       propertyPath: m_Name
@@ -22383,7 +22393,7 @@ PrefabInstance:
     - target: {fileID: 2646781988120199611, guid: ab893bd5ea6303e48be3b3330e4b1c19,
         type: 3}
       propertyPath: maxSpeed
-      value: 1.4
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2646781988120199611, guid: ab893bd5ea6303e48be3b3330e4b1c19,
         type: 3}

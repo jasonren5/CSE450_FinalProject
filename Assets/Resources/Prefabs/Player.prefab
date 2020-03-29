@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   sprintModifier: 1.5
-  maxSpeed: 1.4
+  maxSpeed: 1.5
   tokensLeft: 8
   staminaDrain: 1
   staminaRegen: 1

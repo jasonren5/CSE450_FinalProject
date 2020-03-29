@@ -59,6 +59,17 @@ public class BasicEnemyController : MonoBehaviour
         {
             //follow player or whatever
             transform.position = Vector3.MoveTowards(transform.position, pursue, speed * Time.deltaTime);
+            Vector3 dir = pursue - transform.position;
+
+            if (dir.x > 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+
             //check if it has reached the position that is is chasing, and if true, then
             //      exit pursuing state
             if (transform.position == pursue)
