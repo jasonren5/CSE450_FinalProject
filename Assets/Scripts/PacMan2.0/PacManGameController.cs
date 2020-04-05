@@ -1,20 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-
-public class TokenControllerPacMan : MonoBehaviour
+public class PacManGameController : MonoBehaviour
 {
-
-    int tokensCollected = 0;
-    int totalTokens = 7;
-    
-
-    void OnCollisionEnter2D(Collision2D collision){
-        Destroy(gameObject);
-        tokensCollected++;
-    }
 
     // Start is called before the first frame update
     void Start()
