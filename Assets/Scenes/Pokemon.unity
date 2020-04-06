@@ -20116,6 +20116,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2646781987385278578}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1572443416
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1572443415}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7b487ee50e4dab84184e39c010979f91, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1600016660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21856,7 +21875,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 85
+  m_RootOrder: 86
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2103636648
 PrefabInstance:
@@ -22439,6 +22458,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646781988120199605, guid: ab893bd5ea6303e48be3b3330e4b1c19,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -8401692288953904933, guid: 253a6d37eb18f2745a8639d9d8e53147,
+        type: 3}
+    - target: {fileID: 2646781988120199605, guid: ab893bd5ea6303e48be3b3330e4b1c19,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.9262228
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646781988120199605, guid: ab893bd5ea6303e48be3b3330e4b1c19,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.9716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 2646781988120199605, guid: ab893bd5ea6303e48be3b3330e4b1c19,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.9212798
       objectReference: {fileID: 0}
     - target: {fileID: 2646781988120199610, guid: ab893bd5ea6303e48be3b3330e4b1c19,
         type: 3}

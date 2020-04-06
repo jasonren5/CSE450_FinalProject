@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     
     Rigidbody2D rb;
+    Animator _animator;
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -39,8 +40,10 @@ public class PlayerController : MonoBehaviour
     {
         //get rigidbody component at start to avoid excess calls to getComponent
         rb = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         //accessing sqrMagnitude is quicker than magnitude, so use that when checking speed and then square maxSpeed
         sqrMaxSpeed = maxSpeed * maxSpeed;
+        
 
         drag = rb.drag;
         angularDrag = angularDrag;
@@ -98,7 +101,9 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        
+        _animator.SetFloat("speed", rb.velocity.magnitude);
+        _animator.SetFloat("movementX", rb.velocity.x);
+        _animator.SetFloat("movementY", rb.velocity.y);        
 
 
         if(tokensLeft == 0){
