@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
             }
 
             //if 2 seconds have passed since the last time the player was sprinting, begin regenerating stamina
-            if (Time.time - lastSprint > 2f)
+            if (Time.time - lastSprint > 2f && stamina < 10f)
             {
                 stamina += staminaRegen / 10;
             }
