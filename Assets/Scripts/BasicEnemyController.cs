@@ -58,8 +58,10 @@ public class BasicEnemyController : MonoBehaviour
         if (state == States.pursue)
         {
             //follow player or whatever
-            transform.position = Vector3.MoveTowards(transform.position, pursue, speed * Time.deltaTime);
-            Vector3 dir = pursue - transform.position;
+            Vector2 dir = (pursue - transform.position).normalized;
+            
+            rigidbody.velocity += speed * dir * Time.deltaTime;
+            rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, maxSpeed);
 
             if (dir.x > 0)
             {
