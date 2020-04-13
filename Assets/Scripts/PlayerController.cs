@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PortalController>())
         {
-            SceneManager.LoadScene("Hub");
+            SceneManager.LoadScene("Hub-2.0");
         }
 
 
