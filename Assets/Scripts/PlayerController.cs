@@ -63,7 +63,11 @@ public class PlayerController : MonoBehaviour
         angularDrag = angularDrag;
         lastSprint = Time.time;
 
-        badgesText.text = tokensLeft + " Tokens Remaining";
+        if (badgesText)
+        {
+            badgesText.text = tokensLeft + " Tokens Remaining";
+        }
+        
 
     }
 
