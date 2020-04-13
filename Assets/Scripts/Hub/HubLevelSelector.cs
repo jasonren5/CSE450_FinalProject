@@ -14,6 +14,5 @@ public class HubLevelSelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
