@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public int tokensLeft;
     float sqrMaxSpeed;
 
+    int tokensCarrying = 0;
+
     float stamina = 10f;
     public float staminaDrain;
     public float staminaRegen;
@@ -25,7 +27,6 @@ public class PlayerController : MonoBehaviour
     float lastSprint;
 
     public Text badgesText;
-
     public GameObject portalPrefab;
 
     
@@ -71,17 +72,17 @@ public class PlayerController : MonoBehaviour
             rb.velocity += speed * Vector2.up * Time.deltaTime;
         }
 
-        else if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             rb.velocity += speed * Vector2.left * Time.deltaTime;
         }
 
-        else if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             rb.velocity += speed * Vector2.down * Time.deltaTime;
         }
 
-        else if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             rb.velocity += speed * Vector2.right * Time.deltaTime;
         }
@@ -134,5 +135,15 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(collision.gameObject.GetComponent<HubLevelSelector>().sceneName);
         }
+    }
+
+    public int getNumTokensCarrying()
+    {
+        return tokensCarrying;
+    }
+
+    public void incTokensCarrying()
+    {
+        tokensCarrying++;
     }
 }
