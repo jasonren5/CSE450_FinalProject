@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
                 portal.transform.position = new Vector3(-1.485357f, -3.226716f, 0);
             }
             else{
-                badgesText.text = tokensLeft + " Badges Remaining";
+                badgesText.text = tokensLeft + " Tokens Remaining";
             }
         }
     }
@@ -62,6 +62,8 @@ public class PlayerController : MonoBehaviour
         drag = rb.drag;
         angularDrag = angularDrag;
         lastSprint = Time.time;
+
+        badgesText.text = tokensLeft + " Tokens Remaining";
 
     }
 
