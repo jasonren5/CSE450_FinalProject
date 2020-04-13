@@ -22031,7 +22031,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f324d26725f927a4a9252263fe2e1dcf, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -22816,6 +22816,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Constraints
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077291768925284928, guid: 077997818189ed54ba2df48e5c8f76e8,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4077291768925284928, guid: 077997818189ed54ba2df48e5c8f76e8,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4077291768925284988, guid: 077997818189ed54ba2df48e5c8f76e8,
         type: 3}
