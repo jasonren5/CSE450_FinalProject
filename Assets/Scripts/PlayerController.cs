@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class PlayerController : MonoBehaviour
     //time since last sprint
     float lastSprint;
 
+    public Text badgesText;
+
+    public GameObject portalPrefab;
+
     
     Rigidbody2D rb;
     Animator _animator;
@@ -31,6 +36,14 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.GetComponent<Token>()) {
             --tokensLeft;
+            if(tokensLeft == 0){
+                badgesText.text = "0 Badges Remaining! Now find the portal and get out of here!";
+                GameObject portal = Instantiate(portalPrefab);
+                portal.transform.position = new Vector3(-1.485357f, -3.226716f, 0);
+            }
+            else{
+                badgesText.text = tokensLeft + " Badges Remaining";
+            }
         }
     }
     
@@ -58,17 +71,17 @@ public class PlayerController : MonoBehaviour
             rb.velocity += speed * Vector2.up * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             rb.velocity += speed * Vector2.left * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S))
         {
             rb.velocity += speed * Vector2.down * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             rb.velocity += speed * Vector2.right * Time.deltaTime;
         }
@@ -106,12 +119,6 @@ public class PlayerController : MonoBehaviour
             _animator.SetFloat("movementX", rb.velocity.x);
             _animator.SetFloat("movementY", rb.velocity.y); 
         }
-       
-
-
-        if(tokensLeft == 0){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -120,6 +127,7 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene("Hub");
         }
+
 
         //level selector
         if (collision.gameObject.GetComponent<HubLevelSelector>())
