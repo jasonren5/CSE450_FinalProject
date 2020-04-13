@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: rollDirection
       value: right
       objectReference: {fileID: 0}
+    - target: {fileID: 1129457130706040308, guid: 50adb63ba447e0d488a69f201aae53c2,
+        type: 3}
+      propertyPath: speed
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1129457130706040309, guid: 50adb63ba447e0d488a69f201aae53c2,
         type: 3}
       propertyPath: m_LocalPosition.x
