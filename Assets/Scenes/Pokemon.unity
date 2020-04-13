@@ -22720,17 +22720,17 @@ PrefabInstance:
     - target: {fileID: 2646781988120199605, guid: ab893bd5ea6303e48be3b3330e4b1c19,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.9262228
+      value: 0.4862209
       objectReference: {fileID: 0}
     - target: {fileID: 2646781988120199605, guid: ab893bd5ea6303e48be3b3330e4b1c19,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.9716981
+      value: 0.9150943
       objectReference: {fileID: 0}
     - target: {fileID: 2646781988120199605, guid: ab893bd5ea6303e48be3b3330e4b1c19,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.9212798
+      value: 0.45323068
       objectReference: {fileID: 0}
     - target: {fileID: 2646781988120199608, guid: ab893bd5ea6303e48be3b3330e4b1c19,
         type: 3}
