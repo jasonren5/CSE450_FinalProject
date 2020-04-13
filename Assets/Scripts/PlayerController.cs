@@ -102,8 +102,11 @@ public class PlayerController : MonoBehaviour
         }
 
         _animator.SetFloat("speed", rb.velocity.magnitude);
-        _animator.SetFloat("movementX", rb.velocity.x);
-        _animator.SetFloat("movementY", rb.velocity.y);        
+        if(rb.velocity.magnitude > 0.1f){
+            _animator.SetFloat("movementX", rb.velocity.x);
+            _animator.SetFloat("movementY", rb.velocity.y); 
+        }
+       
 
 
         if(tokensLeft == 0){
