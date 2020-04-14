@@ -151,9 +151,13 @@ public class PlayerController : MonoBehaviour
     public void incTokensCarrying()
     {
         tokensCarrying++;
-        if(tokensCarrying > PlayerPrefs.GetInt("pokemonBestScore"))
+        if(tokensCarrying > PlayerPrefs.GetInt("pokemonBestScore") && (SceneManager.GetActiveScene().name == "Pokemon"))
         {
             PlayerPrefs.SetInt("pokemonBestScore", tokensCarrying);
+        }
+        if (tokensCarrying > PlayerPrefs.GetInt("donkeyKongBestScore") && (SceneManager.GetActiveScene().name == "DonkeyKong"))
+        {
+            PlayerPrefs.SetInt("donkeyKongBestScore", tokensCarrying);
         }
     }
 }
