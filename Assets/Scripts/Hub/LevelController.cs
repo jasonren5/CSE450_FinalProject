@@ -20,7 +20,7 @@ public class LevelController : MonoBehaviour
     {
         pokemonBest.text = PlayerPrefs.GetInt("pokemonBestScore").ToString() + "/8";
         pacManBest.text = PlayerPrefs.GetInt("pacManBestScore").ToString() + "/7";
-        donkeyKongBest.text = PlayerPrefs.GetFloat("donkeyKongBestScore").ToString() + "/3";
+        donkeyKongBest.text = PlayerPrefs.GetInt("donkeyKongBestScore").ToString() + "/3";
     }
 
     // Reset high scores on button click
