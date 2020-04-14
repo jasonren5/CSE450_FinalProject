@@ -118,6 +118,10 @@ public class PlayerControllerPacMan20 : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             tokensCollected++;
+            if(tokensCollected > PlayerPrefs.GetInt("pacManBestScore"))
+            {
+                PlayerPrefs.SetInt("pacManBestScore", tokensCollected);
+            }
             updateTokenText();
         }
     }

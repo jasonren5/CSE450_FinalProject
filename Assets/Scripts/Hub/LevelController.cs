@@ -18,13 +18,8 @@ public class LevelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pokemonBest.text = PlayerPrefs.GetFloat("pokemonBestScore").ToString();
-        pacManBest.text = PlayerPrefs.GetFloat("pacManBestScore").ToString();
-        donkeyKongBest.text = PlayerPrefs.GetFloat("donkeyKongBestScore").ToString();
-        //TODO: Add conditionals to check if time or score should be shown
-        //TODO: Change "score" to be "time" and add measurements like "seconds" when switched to time
-        //pokemonBest.text = PlayerPrefs.GetFloat("pokemonBestTime").ToString();
-        //pacManBest.text = PlayerPrefs.GetFloat("pacManBestTime").ToString();
-        //donkeyKongBest.text = PlayerPrefs.GetFloat("donkeyKongBestTime").ToString();
+        pokemonBest.text = PlayerPrefs.GetInt("pokemonBestScore").ToString() + "/8";
+        pacManBest.text = PlayerPrefs.GetInt("pacManBestScore").ToString() + "/7";
+        donkeyKongBest.text = PlayerPrefs.GetFloat("donkeyKongBestScore").ToString() + "/3";
     }
 }
