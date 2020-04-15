@@ -143,6 +143,11 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.newSize.y
       value: 0.125
       objectReference: {fileID: 0}
+    - target: {fileID: 1754401159411628610, guid: 9e13741f242a44cafbae168fb30d3dc9,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6237129214538471454, guid: 9e13741f242a44cafbae168fb30d3dc9,
         type: 3}
       propertyPath: m_Sprite
@@ -306,6 +311,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 319526280}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &47153624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47153623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e35fc09fc59c4b898a4b9323afea547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!60 &47153627
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -316,7 +333,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -353,7 +370,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -373,6 +390,18 @@ PolygonCollider2D:
       - {x: -0.15, y: -0.15}
       - {x: 0.15, y: -0.15}
       - {x: 0.15, y: 0.15}
+--- !u!114 &51594750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51594748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e35fc09fc59c4b898a4b9323afea547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &51594753
 Rigidbody2D:
   serializedVersion: 4
@@ -393,7 +422,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1001 &94311580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -648,6 +677,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1754401159411628610, guid: 9e13741f242a44cafbae168fb30d3dc9,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6237129214538471454, guid: 9e13741f242a44cafbae168fb30d3dc9,
         type: 3}
       propertyPath: m_Sprite
@@ -750,6 +784,11 @@ PrefabInstance:
     - target: {fileID: 0}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754401159411628610, guid: 9e13741f242a44cafbae168fb30d3dc9,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6237129214538471454, guid: 9e13741f242a44cafbae168fb30d3dc9,
         type: 3}
@@ -1213,6 +1252,11 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.newSize.y
       value: 0.275
       objectReference: {fileID: 0}
+    - target: {fileID: 1754401159411628610, guid: 9e13741f242a44cafbae168fb30d3dc9,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6237129214538471454, guid: 9e13741f242a44cafbae168fb30d3dc9,
         type: 3}
       propertyPath: m_Sprite
@@ -1307,6 +1351,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 573181387}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &372437088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372437087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e35fc09fc59c4b898a4b9323afea547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!60 &372437091
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1317,7 +1373,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2127,6 +2183,11 @@ PrefabInstance:
     - target: {fileID: 0}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754401159411628610, guid: 9e13741f242a44cafbae168fb30d3dc9,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6237129214538471454, guid: 9e13741f242a44cafbae168fb30d3dc9,
         type: 3}
@@ -3239,6 +3300,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 155944300}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1063304204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063304203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e35fc09fc59c4b898a4b9323afea547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!60 &1063304207
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3249,7 +3322,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4299,7 +4372,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 4.7999268, y: -7.200012}
+  m_AnchoredPosition: {x: 4.7998047, y: -7.200012}
   m_SizeDelta: {x: 300, y: 25}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1462120122
@@ -7512,6 +7585,11 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.newSize.y
       value: 0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 1754401159411628610, guid: 9e13741f242a44cafbae168fb30d3dc9,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6237129214538471454, guid: 9e13741f242a44cafbae168fb30d3dc9,
         type: 3}
       propertyPath: m_Sprite
@@ -7606,6 +7684,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1788621261}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1796680870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796680869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e35fc09fc59c4b898a4b9323afea547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!60 &1796680873
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7616,7 +7706,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -7782,6 +7872,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3190800}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1939375064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939375063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e35fc09fc59c4b898a4b9323afea547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!60 &1939375067
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7792,7 +7894,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -7884,6 +7986,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 161470092}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1962209401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962209400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e35fc09fc59c4b898a4b9323afea547, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!60 &1962209404
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -7894,7 +8008,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

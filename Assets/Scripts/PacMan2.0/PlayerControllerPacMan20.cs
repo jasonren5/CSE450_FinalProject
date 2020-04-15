@@ -163,17 +163,7 @@ public class PlayerControllerPacMan20 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Check the provided Collider2D parameter other to see if it is tagged "PickUp", if it is...
-        if (other.gameObject.CompareTag("Token"))
-        {
-            other.gameObject.SetActive(false);
-            tokensCollected++;
-            if(tokensCollected > PlayerPrefs.GetInt("pacManBestScore"))
-            {
-                PlayerPrefs.SetInt("pacManBestScore", tokensCollected);
-            }
-            updateTokenText();
-        }
+
 
         if (other.gameObject.GetComponent<PortalController>())
         {
@@ -187,6 +177,21 @@ public class PlayerControllerPacMan20 : MonoBehaviour
 
 
     
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        //Check the provided Collider2D parameter other to see if it is tagged "PickUp", if it is...
+        if (other.gameObject.CompareTag("Token"))
+        {
+            //other.gameObject.SetActive(false);
+            tokensCollected++;
+            if (tokensCollected > PlayerPrefs.GetInt("pacManBestScore"))
+            {
+                PlayerPrefs.SetInt("pacManBestScore", tokensCollected);
+            }
+            updateTokenText();
+        }
     }
 
     void updateTokenText() {
