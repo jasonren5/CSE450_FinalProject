@@ -38,8 +38,9 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.GetComponent<Token>()) {
             --tokensLeft;
-            if(tokensLeft == 0){
-                badgesText.text = "0 Badges Remaining! Now find the portal and get out of here!";
+            SoundManager.instance.PlaySoundToken();
+            if(tokensLeft != 0){
+                badgesText.text = "0 left! Find the portal!";
                 GameObject portal = Instantiate(portalPrefab);
                 portal.transform.position = new Vector3(-1.485357f, -3.226716f, 0);
             }
