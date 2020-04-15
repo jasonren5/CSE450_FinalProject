@@ -36,7 +36,7 @@ public class PlayerControllerPacMan20 : MonoBehaviour
     //but the code works to rotate pacman correctly
     void Update()
     {
-        if(Input.GetKey(KeyCode.LeftArrow)) {
+        if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
             sprite.flipX = true;
              
             if(rotatedUp){
@@ -52,7 +52,7 @@ public class PlayerControllerPacMan20 : MonoBehaviour
             
 
         }
-        if(Input.GetKey(KeyCode.RightArrow)) {
+        if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
             sprite.flipX = false;
             
             if(rotatedUp){
@@ -67,7 +67,7 @@ public class PlayerControllerPacMan20 : MonoBehaviour
             rigidbody.AddForce(Vector2.right * 20f);
             
         }
-         if(Input.GetKey(KeyCode.UpArrow)) {
+         if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
             sprite.flipX = false;
 
 
@@ -89,7 +89,7 @@ public class PlayerControllerPacMan20 : MonoBehaviour
             rigidbody.AddForce(Vector2.up* 20f);
             
         }
-        if(Input.GetKey(KeyCode.DownArrow)) {
+        if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
             sprite.flipX = false;
 
             if (!rotatedUp && !rotatedDown)
