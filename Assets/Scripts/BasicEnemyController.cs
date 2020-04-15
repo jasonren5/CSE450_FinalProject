@@ -136,6 +136,7 @@ public class BasicEnemyController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other) {
         //Reload scene only when colliding with player
         if(other.gameObject.GetComponent<PlayerController>()) {
+            SoundManager.instance.PlaySoundDeath();
             SceneManager.LoadScene("Hub-2.0");
         }
     }

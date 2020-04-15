@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     float lastSprint;
 
     public Text badgesText;
+    public Text boostText;
     public GameObject portalPrefab;
 
     
@@ -37,8 +38,9 @@ public class PlayerController : MonoBehaviour
     {
         if(other.gameObject.GetComponent<Token>()) {
             --tokensLeft;
-            if(tokensLeft == 0){
-                badgesText.text = "0 Badges Remaining! Now find the portal and get out of here!";
+            SoundManager.instance.PlaySoundToken();
+            if(tokensLeft != 0){
+                badgesText.text = "0 left! Find the portal!";
                 GameObject portal = Instantiate(portalPrefab);
                 portal.transform.position = new Vector3(-1.485357f, -3.226716f, 0);
             }
@@ -71,26 +73,54 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void FixedUpdate()
-    {
+    //Movement for levels where the character can's move diagonal
+    void GetNonDiagonalMovement(){
         if (Input.GetKey(KeyCode.W))
         {
             rb.velocity += speed * Vector2.up * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             rb.velocity += speed * Vector2.left * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S))
         {
             rb.velocity += speed * Vector2.down * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             rb.velocity += speed * Vector2.right * Time.deltaTime;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (SceneManager.GetActiveScene().name == "Pokemon"){
+            GetNonDiagonalMovement();
+        }
+        else{
+            if (Input.GetKey(KeyCode.W))
+            {
+                rb.velocity += speed * Vector2.up * Time.deltaTime;
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                rb.velocity += speed * Vector2.left * Time.deltaTime;
+            }
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                rb.velocity += speed * Vector2.down * Time.deltaTime;
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                rb.velocity += speed * Vector2.right * Time.deltaTime;
+            }
         }
 
         //if sprinting
@@ -119,6 +149,13 @@ public class PlayerController : MonoBehaviour
             {
                 stamina += staminaRegen / 10;
             }
+        }
+
+        if(stamina > 0){
+            boostText.text = "Boost Ready (Left Shift)";
+        }
+        else{
+            boostText.text = "";
         }
 
         _animator.SetFloat("speed", rb.velocity.magnitude);
