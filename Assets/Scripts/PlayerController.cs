@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     public Text badgesText;
     public Text boostText;
+    public Image sprintBar;
     public GameObject portalPrefab;
 
     
@@ -151,12 +152,22 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(stamina > 0){
-            boostText.text = "Boost Ready (Left Shift)";
+        if (boostText)
+        {
+            if (stamina > 0)
+            {
+                boostText.text = "Boost Ready (Left Shift)";
+            }
+            else
+            {
+                boostText.text = "";
+            }
         }
-        else{
-            boostText.text = "";
-        }
+
+
+
+        sprintBar.fillAmount = stamina / 10f;
+         
 
         _animator.SetFloat("speed", rb.velocity.magnitude);
         if(rb.velocity.magnitude > 0.1f){
