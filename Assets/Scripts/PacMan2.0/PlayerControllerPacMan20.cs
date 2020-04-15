@@ -14,6 +14,13 @@ public class PlayerControllerPacMan20 : MonoBehaviour
     int totalTokens = 7;
 
     public Text tokenText;
+    public Image sprintBar;
+    public float speed;
+    float stamina;
+    public float maxStamina;
+    float sprintModifier = 1.5f;
+
+    
 
 
     // Start is called before the first frame update
@@ -22,6 +29,8 @@ public class PlayerControllerPacMan20 : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+
+        stamina = maxStamina;
     }
 
     void FixedUpdate() {
@@ -48,7 +57,7 @@ public class PlayerControllerPacMan20 : MonoBehaviour
                 rotatedDown = false;
             }
             
-            rigidbody.AddForce(Vector2.left * 20f);
+            rigidbody.AddForce(Vector2.left * speed);
             
 
         }
@@ -64,7 +73,7 @@ public class PlayerControllerPacMan20 : MonoBehaviour
                 rotatedDown = false;
             }
             
-            rigidbody.AddForce(Vector2.right * 20f);
+            rigidbody.AddForce(Vector2.right * speed);
             
         }
          if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
@@ -86,7 +95,7 @@ public class PlayerControllerPacMan20 : MonoBehaviour
             rotatedDown = true;
             rotatedUp = false;
             
-            rigidbody.AddForce(Vector2.up* 20f);
+            rigidbody.AddForce(Vector2.up* speed);
             
         }
         if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
@@ -105,7 +114,7 @@ public class PlayerControllerPacMan20 : MonoBehaviour
             rotatedUp = true;
             rotatedDown = false;
 
-            rigidbody.AddForce(Vector2.down * 20f);
+            rigidbody.AddForce(Vector2.down * speed);
             
         }
         
