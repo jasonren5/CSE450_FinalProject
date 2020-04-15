@@ -17,9 +17,14 @@ public class PlayerControllerPacMan20 : MonoBehaviour
     public Text tokenText;
     public Image sprintBar;
     public float speed;
+    public float maxSpeed;
     float stamina;
     public float maxStamina;
-    float sprintModifier = 1.5f;
+    float sprintModifier = 2f;
+    float staminaDrain = .6f;
+    float staminaRegen = .8f;
+
+    float lastSprint;
 
     
 
@@ -32,11 +37,9 @@ public class PlayerControllerPacMan20 : MonoBehaviour
         animator = GetComponent<Animator>();
 
         stamina = maxStamina;
+        lastSprint = Time.time;
     }
 
-    void FixedUpdate() {
-        animator.SetFloat("Speed",rigidbody.velocity.magnitude);
-    }
 
     bool rotatedUp = false;
     bool rotatedDown = false;
@@ -44,40 +47,48 @@ public class PlayerControllerPacMan20 : MonoBehaviour
     // Update is called once per frame
     //logically the rotation code doesn't make sense,
     //but the code works to rotate pacman correctly
-    void Update()
+    void FixedUpdate()
     {
-        if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
+        animator.SetFloat("Speed", rigidbody.velocity.magnitude);
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
             sprite.flipX = true;
-             
-            if(rotatedUp){
-                transform.Rotate(Vector3.forward * 90);
-                rotatedUp= false;
-            }
-            else if(rotatedDown){
-                transform.Rotate(Vector3.forward * -90);
-                rotatedDown = false;
-            }
-            
-            rigidbody.AddForce(Vector2.left * speed);
-            
 
-        }
-        if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
-            sprite.flipX = false;
-            
-            if(rotatedUp){
+            if (rotatedUp)
+            {
                 transform.Rotate(Vector3.forward * 90);
                 rotatedUp = false;
             }
-            else if(rotatedDown){
+            else if (rotatedDown)
+            {
                 transform.Rotate(Vector3.forward * -90);
                 rotatedDown = false;
             }
-            
-            rigidbody.AddForce(Vector2.right * speed);
-            
+
+            rigidbody.AddForce(Vector2.left * speed);
+
+
         }
-         if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            sprite.flipX = false;
+
+            if (rotatedUp)
+            {
+                transform.Rotate(Vector3.forward * 90);
+                rotatedUp = false;
+            }
+            else if (rotatedDown)
+            {
+                transform.Rotate(Vector3.forward * -90);
+                rotatedDown = false;
+            }
+
+            rigidbody.AddForce(Vector2.right * speed);
+
+        }
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+        {
             sprite.flipX = false;
 
 
@@ -95,11 +106,12 @@ public class PlayerControllerPacMan20 : MonoBehaviour
             //logically doesn't make sense, but the code works to rotate correctly
             rotatedDown = true;
             rotatedUp = false;
-            
-            rigidbody.AddForce(Vector2.up* speed);
-            
+
+            rigidbody.AddForce(Vector2.up * speed);
+
         }
-        if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        {
             sprite.flipX = false;
 
             if (!rotatedUp && !rotatedDown)
@@ -116,9 +128,37 @@ public class PlayerControllerPacMan20 : MonoBehaviour
             rotatedDown = false;
 
             rigidbody.AddForce(Vector2.down * speed);
-            
+
         }
-        
+
+        //sprint code
+        //if sprinting
+        if (Input.GetKey(KeyCode.LeftShift) && stamina > 0)
+        {
+
+            if (rigidbody.velocity.sqrMagnitude > maxSpeed * maxSpeed * sprintModifier * sprintModifier)
+            {
+                rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed * sprintModifier;
+            }
+            stamina -= staminaDrain / 10;
+            lastSprint = Time.time;
+        }
+        //if not sprinting
+        else
+        {
+            if (rigidbody.velocity.sqrMagnitude > maxSpeed * maxSpeed)
+            {
+                rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed;
+            }
+
+            //if 2 seconds have passed since the last time the player was sprinting, begin regenerating stamina
+            if (Time.time - lastSprint > 2f && stamina < 10f)
+            {
+                stamina += staminaRegen / 10;
+            }
+        }
+
+        sprintBar.fillAmount = stamina / 10f;
     }
 
     void OnTriggerEnter2D(Collider2D other)
