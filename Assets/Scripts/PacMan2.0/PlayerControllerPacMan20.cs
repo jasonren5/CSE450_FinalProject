@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerControllerPacMan20 : MonoBehaviour
 {
@@ -124,11 +125,26 @@ public class PlayerControllerPacMan20 : MonoBehaviour
             }
             updateTokenText();
         }
+
+        if (other.gameObject.GetComponent<PortalController>())
+        {
+            SceneManager.LoadScene("Hub-2.0");
+
+            if (other.gameObject.GetComponent<HubLevelSelector>())
+            {
+                SceneManager.LoadScene(other.gameObject.GetComponent<HubLevelSelector>().sceneName);
+            }
+        }
+
+
+    
     }
 
     void updateTokenText() {
         tokenText.text = tokensCollected.ToString() + "/" + totalTokens.ToString()
             + " Tokens";
     }
+
+
 
 }
